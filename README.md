@@ -31,8 +31,8 @@ Hope you'll find it useful.
 *Incursore* has the following features and changes:
 - It immmediately runs a full TCP port scans
 - It asks to the user to run with sudo in order to run a SYN Scan instead of a Connect Scan
-- It automatically try to bruteforce FTP services
-- It automatically take screenshot of HTTP homepages using *cutycapt*
+- It automatically tries to bruteforce FTP services
+- It automatically takes screenshot of HTTP homepages using *cutycapt*
 - It runs *ffuf* instead of *gobuster*
 - It does not run *nikto*
 - It has not the remote capabilities
