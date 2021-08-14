@@ -36,7 +36,10 @@ Hope you'll find it useful.
 - It runs *ffuf* instead of *gobuster*
 - It does not run *nikto*
 - It has not the remote capabilities
-
+#### Minor changes
+- It highlights target IP
+- It highlights target OS type
+- It highlights nmap scan type
 ## Requirements
 *Incursore*'s requirements are the following:
 |      tool      |      scope      | official link |
