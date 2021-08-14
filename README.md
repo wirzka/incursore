@@ -24,6 +24,9 @@ It came out from *nmapAutomator* to be more suited for the OSCP environment.
 While *incursore* has born from *nmapAutomator*, it is **not** *nmapAutomator*. The script from @21y4d is great, but sometimes it's too slow (due to nikto).
 So, from just removing nikto I found myself tweaking it a lot, that's why I decided to rename it to incursore and to publish it under a new repo and name.
 Hope you'll find it useful.
+
+*Bear in mind that I'm still working on it.*
+
 ## Features and changes
 *Incursore* has the following features and changes:
 - It immmediately runs a full TCP port scans
