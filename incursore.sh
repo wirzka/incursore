@@ -479,9 +479,8 @@ reconRecommend() {
                 file="$(cat "nmap/Script_TCP_${HOST}.nmap" | grep "open" | grep -v "#" | sort | uniq)"
         fi
 
-        # FTP bruteforce attempt
-        # checking if anonymous login is allowed, but maybe it's better try to bruteforce anyway, Idk
-        if echo "${file}" | grep -q ftp | grep -v "Anonymous FTP login allowed"; then
+        # FTP bruteforce attempt in every case
+        if echo "${file}" | grep -q "ftp" ; then
                 ftpPort="$(echo "${file}" | grep ftp | awk -F'/' '{if (NR <= 1) print $1}')"
                 printf "${NC}\n"
                 printf "${YELLOW}> FTP bruteforcing with default creds:\n"
