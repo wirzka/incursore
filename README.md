@@ -17,6 +17,7 @@ It came out from *nmapAutomator* to be more suited for the OSCP environment.
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Future features](#future-features)
 
 ## TL;DR
 While *incursore* has born from *nmapAutomator*, it is **not** *nmapAutomator*. The script from @21y4d is great, but sometimes it's too slow (due to nikto).
