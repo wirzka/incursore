@@ -461,7 +461,7 @@ recon() {
 # to be executed.
 # Everything will be executed inside the runRecon() function
 reconRecommend() {
-        printf "\n\n\n\\n"
+        printf "\n\n\n\n"
         printf "${YELLOW}[*] Recon Recommendations\n"
         printf "${NC}\n"
         printf "The script will execute the following commands.\n"
@@ -470,7 +470,7 @@ reconRecommend() {
 "
 
         # Set $ports and $file variables
-        if [ -f "nmap/Sctipt_TCP_${HOST}.nmap" ]; then
+        if [ -f "nmap/Script_TCP_${HOST}.nmap" ]; then
                 ports="${allTCPPorts}"
                 file="$(cat "nmap/Script_TCP_${HOST}.nmap" | grep "open" | grep -v "#" | sort | uniq)"
                 echo "${file}"
