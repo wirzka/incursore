@@ -289,6 +289,8 @@ portScan() {
 
                 echo
         fi
+
+        echo
 }
 
 # Nmap version and default script scan on found ports
@@ -314,6 +316,7 @@ scriptScan() {
                         printf "${NC}\n"
                 fi
         fi
+
         echo
 }
 
@@ -352,6 +355,7 @@ UDPScan() {
                 printf "${YELLOW}No UDP ports are open\n"
                 printf "${NC}\n"
         fi
+
         echo
 }
 
@@ -473,12 +477,11 @@ reconRecommend() {
         if [ -f "nmap/Script_TCP_${HOST}.nmap" ]; then
                 ports="${allTCPPorts}"
                 file="$(cat "nmap/Script_TCP_${HOST}.nmap" | grep "open" | grep -v "#" | sort | uniq)"
-                echo "${file}"
         fi
 
         # FTP bruteforce attempt
         # checking if anonymous login is allowed, but maybe it's better try to bruteforce anyway, Idk
-        if echo "${file}" | grep ftp | grep -v "Anonymous FTP login allowed"; then
+        if echo "${file}" | grep -q ftp | grep -v "Anonymous FTP login allowed"; then
                 ftpPort="$(echo "${file}" | grep ftp | awk -F'/' '{if (NR <= 1) print $1}')"
                 printf "${NC}\n"
                 printf "${YELLOW}> FTP bruteforcing with default creds:\n"
@@ -504,7 +507,6 @@ reconRecommend() {
                 echo "dnsrecon -r \"${subnet}/24\" -n \"${DNSSERVER}\" | tee \"recon/dnsrecon_${HOST}.txt\""
                 echo "dnsrecon -r 127.0.0.0/24 -n \"${DNSSERVER}\" | tee \"recon/dnsrecon-local_${HOST}.txt\""
                 echo "dig -x \"${HOST}\" @${DNSSERVER} | tee \"recon/dig_${HOST}.txt\""
-
         fi
 
         # Web recon
