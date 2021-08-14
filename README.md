@@ -21,7 +21,7 @@ It came out from *nmapAutomator* to be more suited for the OSCP environment.
 - [Disclaimer](#disclaimer)
 
 ## TL;DR
-While *incursore* has born from *nmapAutomator*, it is **not** *nmapAutomator*. The script from @21y4d is great, but sometimes it's too slow (due to nikto).
+While *incursore* has born from *nmapAutomator*, it is **not** *nmapAutomator*. The script from @21y4d is great, but sometimes it's too slow (due to nikto). By removing it, the time needed to complete a scan has been drastically reduced.
 So, from just removing nikto I found myself tweaking it a lot, that's why I decided to rename it to incursore and to publish it under a new repo and name.
 Hope you'll find it useful.
 
