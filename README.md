@@ -18,6 +18,7 @@ It came out from *nmapAutomator* to be more suited for the OSCP environment.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Future features](#future-features)
+- [Disclaimer](#disclaimer)
 
 ## TL;DR
 While *incursore* has born from *nmapAutomator*, it is **not** *nmapAutomator*. The script from @21y4d is great, but sometimes it's too slow (due to nikto).
@@ -88,3 +89,9 @@ inspired by @21y4d gently modified by @wirzka
 ```
 ## Future Features
 - Generally increasing auto reconnaissance based on discovered services.
+
+## Disclaimer
+I am not responsible for any damages (tangible or intangible) resulting from the use of *incursore*.
+You must have the permissions to use it.
+
+Stay safe.
