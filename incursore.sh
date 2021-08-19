@@ -479,15 +479,16 @@ reconRecommend() {
                 file="$(cat "nmap/Script_TCP_${HOST}.nmap" | grep "open" | grep -v "#" | sort | uniq)"
         fi
 
-        # FTP bruteforce attempt in every case
-        if echo "${file}" | grep -q "ftp" ; then
+        # FTP bruteforce attempt
+        # checking if anonymous login is allowed, but maybe it's better try to bruteforce anyway, Idk
+
+        if echo "${file}" | grep -q "ftp"; then
                 ftpPort="$(echo "${file}" | grep ftp | awk -F'/' '{if (NR <= 1) print $1}')"
                 printf "${NC}\n"
                 printf "${YELLOW}> FTP bruteforcing with default creds:\n"
                 printf "${NC}\n"
                 echo "hydra -s $ftpPort -C /usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt -u -f \"${HOST}\" ftp | tee \"recon/ftpBruteforce_${HOST}.txt\""
         fi
-
         # SMTP recon
         if echo "${file}" | grep -q "25/tcp"; then
                 printf "${NC}\n"
@@ -540,17 +541,18 @@ reconRecommend() {
                         cms="$(grep http-generator "nmap/Script_TCP_${HOST}.nmap" | cut -d " " -f 2)"
                         if [ -n "${cms}" ]; then
                                 for line in ${cms}; do
-                                        port="$(sed -n 'H;x;s/\/.*'"${line}"'.*//p' "nmap/Script_TCP_${HOST}.nmap")"
-
+                                        port="$(sed -n 'H;x;s/[^0-9].*'"${line}"'.*//p' "nmap/Script_TCP_${HOST}.nmap")"
                                         # case returns 0 by default (no match), so ! case returns 1
                                         if ! case "${cms}" in Joomla | WordPress | Drupal) false ;; esac then
                                                 printf "${NC}\n"
                                                 printf "${YELLOW}[>>] CMS Recon:\n"
                                                 printf "${NC}\n"
                                         fi
+                                        # echo "Port 3: ${port3}"
                                         case "${cms}" in
                                         Joomla!) echo "joomscan --url \"${HOST}:${port}\" | tee \"recon/joomscan_${HOST}_${port}.txt\"" ;;
-                                        WordPress) echo "wpscan --url \"${HOST}:${port}\" --enumerate p | tee \"recon/wpscan_${HOST}_${port}.txt\"" ;;
+
+                                        WordPress) echo "wpscan --url http://\"${HOST}:${port}\" --enumerate p | tee \"recon/wpscan_${HOST}_${port}.txt\"" ;;
                                         Drupal) echo "droopescan scan drupal -u \"${HOST}:${port}\" | tee \"recon/droopescan_${HOST}_${port}.txt\"" ;;
                                         esac
                                 done
