@@ -64,6 +64,10 @@ Hope you'll find it useful.
 
 
 The majority of them is already present in pentesting distro like Parrot OS and Kali Linux.
+To find out how many of them are missing on your machine, just launch a which command like this:
+```bash
+$ which nmap ffuf sslscan joomscan wpscan droopescan cutycapt smbmap enum4linux snmp-check snmpwalk odat ldapsearch dnsrecon smtp-user-enum hydra
+```
 
 ## Installation
 ```bash
