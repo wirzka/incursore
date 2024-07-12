@@ -18,6 +18,7 @@ It came out from *nmapAutomator* to be more suited for the OSCP environment.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Future features](#future-features)
+- [Incursore in the wild](#incursore-in-the-wild)
 - [Disclaimer](#disclaimer)
 
 ## TL;DR
@@ -99,6 +100,11 @@ inspired by @21y4d gently modified by @wirzka
 ```
 ## Future Features
 - Generally increasing auto reconnaissance based on discovered services.
+
+## Incursore in the wild
+Thanks to everyone for spending some times trying, using, and enhancing Incursore <3:
+#### Xerosec on his YouTube video
+[![xerosec on his YouTube video](https://img.youtube.com/vi/4CKey4l490c/0.jpg)](https://www.youtube.com/watch?v=4CKey4l490c)
 
 ## Disclaimer
 I am not responsible for any damages (tangible or intangible) resulting from the use of *incursore*.
